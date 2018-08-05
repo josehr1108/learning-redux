@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-export default class BookDetail extends Component{
+class BookDetail extends Component{
     render(){
+        if(!this.props.book){
+            return <div>Please select a book to see details!</div>
+        }
+
         return(
             <div>
-                Book Detail!
+                <h3>Details for:</h3>
+                <div>{this.props.book.title}</div>
+                <div>Pages:{this.props.book.pages}</div>
             </div>
         )
     }
